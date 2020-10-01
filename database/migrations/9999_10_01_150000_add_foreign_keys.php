@@ -43,14 +43,14 @@ class AddForeignKeys extends Migration
     {
       Schema::table('employees', function (Blueprint $table) {
 
-        $table ->dropForeing('emp-loc');
+        $table ->dropForeign('emp-loc');
       });
 
 
       Schema::table('employee_task', function (Blueprint $table) {
 
-      $table ->dropForeing('tas-emp');
-      $table ->dropForeing('emp-tas');
+      $table ->dropForeign('tas-emp');
+      $table ->dropForeign('emp-tas');
 
       });
 

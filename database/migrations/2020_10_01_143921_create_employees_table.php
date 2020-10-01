@@ -23,6 +23,8 @@ class CreateEmployeesTable extends Migration
             $table->string('personal_code');
             $table->date("date_of_birth");
 
+            $table->timestamps();
+
         });
     }
 

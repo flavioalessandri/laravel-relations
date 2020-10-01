@@ -19,6 +19,8 @@ class CreateTasksTable extends Migration
             $table->string('title', 50);
             $table->string('description',250);
             $table->integer('difficulty_level');
+
+            $table->timestamps();
         });
     }
 
