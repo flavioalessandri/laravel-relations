@@ -10,7 +10,9 @@ class EmployeeController extends Controller
 {
     public function index(){
       $employees = Employee::all();
-      return view('employees.index', compact('employees') );
+
+      $count = 1;
+      return view('employees.index', compact('employees','count') );
     }
 
     public function show($id){
@@ -46,6 +48,16 @@ class EmployeeController extends Controller
       $locations = Location::all();
 
       return view('employees.edit', compact('employee', 'locations'));
+    }
+
+    public function update(Request $request, $id){
+
+
+      $data = $request->all();
+      $emp = Employee::findOrFail($id);
+      $emp -> update($data);
+
+      return redirect() -> route('employees-index');
 
 
     }

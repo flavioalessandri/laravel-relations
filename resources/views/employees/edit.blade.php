@@ -4,7 +4,7 @@
 
 <h2>EDIT EMPLOYEE</h2>
 
-<form class="" action="" method="post">
+<form class="" action="{{route('employee-update',$employee->id)}}" method="post">
 
 @csrf
 @method('POST')
@@ -36,7 +36,16 @@
 
       @foreach ($locations as $location)
 
-        <option value="{{$location -> id}}"> {{$location -> city}} </option>
+              <option value="{{$location -> id}}"
+
+
+                @if ($location->id === $employee->location->id )
+
+                selected
+
+                @endif
+
+        > {{$location -> city}} </option>
 
       @endforeach
 

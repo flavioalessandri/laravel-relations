@@ -1,0 +1,17 @@
+@mixin main-side-padding {
+  padding-left:40px;
+  padding-right: 40px;
+}
+
+@mixin main-upDown-padding {
+  padding-top:15px;
+  padding-bottom: 15px;
+}
+
+
+
+@mixin flex-row-spacebetween{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

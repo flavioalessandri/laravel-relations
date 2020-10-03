@@ -14,6 +14,7 @@ Route::get('/employee/create', 'EmployeeController@create')->name('employee-crea
 Route::get('/employee/delete/{id}', 'EmployeeController@destroy')->name('employee-destroy');
 
 Route::get('/employee/edit/{id}', 'EmployeeController@edit')->name('employee-edit');
+Route::post('/employee/post/{id}', 'EmployeeController@update')->name('employee-update');
 
 Route::post('/employee/store','EmployeeController@store')->name('employee-store');
 

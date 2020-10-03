@@ -1,0 +1,48 @@
+header{
+  font-family: 'David Libre', serif;
+  // background-color: #F5E9E9;
+
+  border-bottom: 1px solid #186D73;
+
+  @include main-side-padding;
+  @include main-upDown-padding;
+
+  .navbar{
+
+    width:100%;
+    min-height: 30px;
+
+    ul{
+      @include flex-row-spacebetween;
+      width:100%;
+      list-style-type: none;
+    }
+
+    li:first-of-type{
+      align-self: flex-start;
+    }
+
+    a{
+      display: block;
+      padding:10px 30px;
+      color:#186D73;
+
+      &:hover{
+        color:#575757;
+      }
+    }
+
+    img{
+      width:120px;
+    }
+
+    .pagesLink >
+                li:not(:last-of-type)
+                                        >a{
+      border-right: 1px solid #186D73;
+    }
+
+
+
+  }
+}

@@ -2,25 +2,35 @@
 
 @section('content')
 
-<h2>PAGINE EMPLOYEES</h2>
+<section>
 
-<ul>
+  <div id="employees-list">
 
+    <h2>PAGINE EMPLOYEES</h2>
 
-@foreach ($employees as $employee)
+    <ol class="main-list">
 
-<li><a href="{{route('employee-show', $employee->id )}}">
+          @foreach ($employees as $employee)
 
-        {{ $employee-> name }} - {{ $employee-> lastname }}
+            @if( $loop->iteration % 3 == 1)
 
-    </a>
+            </li>
+              </ul>
+                <li>
+                  <ul class="employee-group">
 
-</li>
+          @endif
+                <li class="new">
+                  <a href="{{route('employee-show', $employee->id )}}">
 
+                        {{ $employee-> name }} - {{ $employee-> lastname }}
 
-@endforeach
+                    </a>
+                </li>
+          @endforeach
 
-</ul>
-
+      </ol>
+  </div>
+</section>
 
 @endsection
