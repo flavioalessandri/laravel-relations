@@ -2,6 +2,13 @@
 
 @section('content')
 
-<h2>MAIN HOME</h2>
+  <section>
 
+
+  <div id="home" class="image">
+
+
+</div>
+
+</section>
 @endsection

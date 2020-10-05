@@ -35,7 +35,7 @@ header {
   border-bottom: 1px solid #186D73;
   padding-left: 40px;
   padding-right: 40px;
-  padding-top: 15px;
+  padding-top: 35px;
   padding-bottom: 15px;
 }
 
@@ -75,6 +75,8 @@ header .navbar .pagesLink > li:not(:last-of-type) > a {
 }
 
 section {
+  padding-top: 35px;
+  padding-bottom: 15px;
   padding-left: 40px;
   padding-right: 40px;
   font-family: "Oswald";
@@ -83,6 +85,16 @@ section {
 
 section h2 {
   font-family: "Bebas Neue", cursive;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+section #home {
+  width: 100%;
+  height: 500px;
+  background-image: url("/img/factory.jpg");
+  background-size: cover;
+  background-position: 44px -109px;
 }
 
 section #employees-list {
@@ -109,12 +121,13 @@ section #employees-list .main-list > li {
   min-height: 100px;
 }
 
-section #employee-show {
-  padding-top: 30px;
+section #employees-list .main-list .employee-group {
+  padding: 10px;
+  border: 1px solid black;
 }
 
-section #employee-show h2 {
-  padding-bottom: 20px;
+section #employee-show {
+  padding-top: 30px;
 }
 
 section #employee-show .selected-employee,
@@ -135,9 +148,11 @@ section #employee-show #tasks-carousel ul {
 
 section #employee-show .selected-employee .tasks-container,
 section #employee-show #tasks-carousel .tasks-container {
+  padding-left: 10px;
   margin-left: auto;
   margin-right: auto;
   border: 1px solid black;
+  min-height: 230px;
 }
 
 section #employee-show .selected-employee #prev,
@@ -159,5 +174,38 @@ section #employee-show #tasks-carousel .buttons {
   position: absolute;
   top: 0;
   right: 0;
+}
+
+section #employee-edit,
+section #employee-create {
+  width: 100%;
+}
+
+section #employee-edit input,
+section #employee-create input {
+  width: 200px;
+}
+
+section #employee-edit .form-group,
+section #employee-create .form-group {
+  padding: 10px 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+section #employee-edit .form-group .button,
+section #employee-create .form-group .button {
+  width: 80px;
+  padding: 10px 0;
+}
+
+footer {
+  width: 100%;
+  min-height: 100px;
+  background-color: #186D73;
 }
 

@@ -8,7 +8,7 @@
 
 
     <ul class="selected-employee" data-id="{{ $employee->id }}">
-      <li><h2>SINGOLO EMPLOYEE</h2></li>
+      <li><h2>{{ $employee->name }} {{ $employee->lastname }}</h2></li>
       <li>Name:  {{ $employee->name }} </li>
       <li>LastName:  {{ $employee->lastname }}</li>
       <li>Personal-Code: {{ $employee->personal_code }}</li>

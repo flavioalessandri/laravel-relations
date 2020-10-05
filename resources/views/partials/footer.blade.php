@@ -1,5 +1,7 @@
 <footer>
 
-<h2>FOOTER</h2>
+<div class="">
+
+</div>
 
 </footer>
