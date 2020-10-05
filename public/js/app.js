@@ -19335,43 +19335,47 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 document.addEventListener('DOMContentLoaded', function (event) {
   console.log('DOM completamente caricato e analizzato');
   var nextButton = document.getElementById('next');
+  var prevButton = document.getElementById('prev');
   nextButton.addEventListener("click", nextTask);
+  prevButton.addEventListener("click", prevTask);
 });
 
-function nextTask() {
-  // var taskList= document.getElementById('tasks-carousel');
+function prevTask() {
+  var prevButton = document.getElementById('prev');
+  var nextButton = document.getElementById('next');
+  nextButton.classList.remove('hidden');
   var list = document.getElementsByClassName('tasks-container')[0].children;
-  console.log(list.length); // var list = taskList.querySelector('.tasks-container').children;
-  //
-  // var li = taskList.getElementsByTagName('LI');
-  // console.log(li.length);
-  //
+  var active = document.querySelector('.show');
+  var prev = active.previousElementSibling;
+  var listLeng = list.length;
 
-  var active = document.getElementsByClassName('show'); //
+  if (active.getAttribute('data-carousel') !== "1") {
+    active.classList.remove('show');
+    active.classList.add('hidden');
+    prev.classList.add('show');
+    prev.classList.remove('hidden');
+  } else {
+    prevButton.classList.add('hidden');
+  }
+}
 
-  var next = active[0].nextElementSibling;
-  var prev = active[0].previousElementSibling;
+function nextTask() {
+  var prevButton = document.getElementById('prev');
+  var nextButton = document.getElementById('next');
+  prevButton.classList.remove('hidden');
+  var list = document.getElementsByClassName('tasks-container')[0].children;
+  var active = document.querySelector('.show');
+  var next = active.nextElementSibling;
+  var listLeng = list.length;
 
-  for (var i = 0; i < list.length; i++) {
-    if (active[0].dataset['data-carousel'] !== '"' + list.length + '"') {
-      console.log(list[i].dataset['data-carousel'], "data");
-      list[i].classList.remove('show');
-      list[i].classList.add('hidden');
-      console.log(list[i].className);
-      console.log("elemento next", next);
-      next.classList.add('show');
-      next.classList.remove('hidden');
-    } else {
-      document.getElementById('next').classList.add('hidden');
-    }
-  } // var active = list.className('show');
-  // console.log("active",active,list);
-  // console.log("dibling",next);
-  // if(active.dataset.parent == 1){
-  //
-  // }
-  //
-
+  if (active.getAttribute('data-carousel') !== listLeng.toString()) {
+    active.classList.remove('show');
+    active.classList.add('hidden');
+    next.classList.add('show');
+    next.classList.remove('hidden');
+  } else {
+    nextButton.classList.add('hidden');
+  }
 }
 
 /***/ }),

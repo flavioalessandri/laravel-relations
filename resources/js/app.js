@@ -4,65 +4,60 @@ require('./bootstrap');
 document.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM completamente caricato e analizzato');
 
-    var nextButton = document.getElementById('next')
-
+    var nextButton = document.getElementById('next');
+    var prevButton = document.getElementById('prev');
     nextButton.addEventListener("click", nextTask);
-
-
+    prevButton.addEventListener("click", prevTask);
 
 });
 
-function nextTask(){
-  // var taskList= document.getElementById('tasks-carousel');
+function prevTask(){
+
+  var prevButton = document.getElementById('prev');
+  var nextButton = document.getElementById('next');
+
+  nextButton.classList.remove('hidden');
+
   var list= document.getElementsByClassName('tasks-container').[0].children;
-  console.log(list.length);
+  var active = document.querySelector('.show');
+  var prev = active.previousElementSibling;
+  var listLeng = list.length;
 
+  if (active.getAttribute('data-carousel') !== "1" ) {
 
+    active.classList.remove('show');
+    active.classList.add('hidden');
 
-  // var list = taskList.querySelector('.tasks-container').children;
-  //
-  // var li = taskList.getElementsByTagName('LI');
-  // console.log(li.length);
-  //
-  var active = document.getElementsByClassName('show');
-  //
-  var next = active.[0].nextElementSibling;
-  var prev = active.[0].previousElementSibling;
+    prev.classList.add('show');
+    prev.classList.remove('hidden');
 
-  for (let i = 0; i < list.length; i++) {
-
-    if (active.[0].dataset['data-carousel'] !== ('"'+ list.length+'"')) {
-
-      console.log(list[i].dataset['data-carousel'], "data");
-
-    list[i].classList.remove('show');
-    list[i].classList.add('hidden');
-    console.log(list[i].className);
-
-    console.log("elemento next", next);
-
-    next.classList.add('show');
-    next.classList.remove('hidden');
   } else{
-
-    document.getElementById('next').classList.add('hidden');
+    prevButton.classList.add('hidden');
   }
+
 }
 
 
+function nextTask(){
+  var prevButton = document.getElementById('prev');
+  var nextButton = document.getElementById('next');
 
+  prevButton.classList.remove('hidden');
 
+  var list= document.getElementsByClassName('tasks-container').[0].children;
+  var active = document.querySelector('.show');
+  var next = active.nextElementSibling;
+  var listLeng = list.length;
 
+  if (active.getAttribute('data-carousel') !== listLeng.toString() ) {
 
-  // var active = list.className('show');
+    active.classList.remove('show');
+    active.classList.add('hidden');
 
+    next.classList.add('show');
+    next.classList.remove('hidden');
 
-  // console.log("active",active,list);
-  // console.log("dibling",next);
-  // if(active.dataset.parent == 1){
-  //
-  // }
-  //
-
-
+  } else{
+    nextButton.classList.add('hidden');
+  }
 }
