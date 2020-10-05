@@ -2,39 +2,54 @@
 
 @section('content')
 
-<h2>SINGOLO EMPLOYEE</h2>
+<section>
 
-<ul>
+  <div id="employee-show" class="">
 
-  <li>id: {{ $employee->id }}</li>
-  <li>Name:  {{ $employee->name }} </li>
-  <li>LastName:  {{ $employee->lastname }}</li>
-  <li> Personal-Code: {{ $employee->personal_code }}</li>
-  <li> Date-Of-Birth: {{ $employee->date_of_birth }}</li>
-  <li> Location: {{ $employee->location->city }}, ( {{ $employee->location->country }} )</li>
 
-  <ul>
-    <li>TASK ASSEGNATI</li>
-
-    <ul>
-      @foreach ( $employee-> tasks as $task )
-
-        <li>Title: {{ $task -> title }}</li>
-        <li>Description: {{$task -> description }}</li>
-        <li>Difficulty Level: {{ $task -> difficulty_level }}</li>
-        <br>
-
-      @endforeach
+    <ul class="selected-employee" data-id="{{ $employee->id }}">
+      <li><h2>SINGOLO EMPLOYEE</h2></li>
+      <li>Name:  {{ $employee->name }} </li>
+      <li>LastName:  {{ $employee->lastname }}</li>
+      <li>Personal-Code: {{ $employee->personal_code }}</li>
+      <li>Date-Of-Birth: {{ $employee->date_of_birth }}</li>
+      <li>Location: {{ $employee->location->city }}, ( {{ $employee->location->country }} )</li>
+      <li class="buttons">
+        <button type="button" name="button"><a href="{{route('employee-edit', $employee ->id)}}">EDIT</a></button>
+        <button type="button" name="button"><a href="{{route ('employee-destroy', $employee ->id) }}">DELETE</a></button>
+      </li>
     </ul>
 
-  </ul>
+    <div id= "tasks-carousel">
+      <h2>TASK ASSEGNATI</h2>
+      <ul class="tasks-container" >
+        @foreach ( $employee-> tasks as $task )
 
-  <li><a href="{{route('employee-edit', $employee ->id)}}">EDIT</a></li>
-    <li><a href="{{route ('employee-destroy', $employee ->id) }}">DELETE</a></li>
+          <li class="@if ($count ==1)
+                      first show
+                      @else
+                      hidden
+                      @endif"
+                      data-id="{{$task -> id}}" data-carousel="{{$count++}}">
+            <ul >
+              <li><strong>Title:</strong> {{ $task -> title }}</li>
+              <li><strong>Description:</strong> {{$task -> description }}</li>
+              <li><strong>Difficulty Level:</strong> {{ $task -> difficulty_level }}</li>
+            </ul>
+          </li>
+
+          @endforeach
+        </ul>
 
 
-</ul>
+          <a id="prev" href="#"><i class="fa fa-chevron-left" ></i></a>
+          <a id="next" href="#"><i class="fa fa-chevron-right" ></i></a>
 
 
+      </div>
+
+
+  </div>
+</section>
 
 @endsection

@@ -8,6 +8,13 @@
   padding-bottom: 15px;
 }
 
+@mixin margin-auto {
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+
 
 
 @mixin flex-row-spacebetween{

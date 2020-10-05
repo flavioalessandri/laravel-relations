@@ -14,11 +14,23 @@
   font-weight: bold;
 }
 
-a{
-  text-decoration: none;
-
+.show{
+  display: block;
 
 }
+
+a{
+  text-decoration: none;
+}
+
+li{
+  list-style: none;
+}
+
+.hidden{
+  display: none;
+}
+
 
 @import 'partials/commons';
 @import 'partials/header';

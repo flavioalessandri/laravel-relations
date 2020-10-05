@@ -14,8 +14,20 @@
   font-weight: bold;
 }
 
+.show {
+  display: block;
+}
+
 a {
   text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.hidden {
+  display: none;
 }
 
 header {
@@ -63,10 +75,10 @@ header .navbar .pagesLink > li:not(:last-of-type) > a {
 }
 
 section {
-  font-family: "Oswald";
-  font-weight: 300;
   padding-left: 40px;
   padding-right: 40px;
+  font-family: "Oswald";
+  font-weight: 300;
 }
 
 section h2 {
@@ -95,5 +107,57 @@ section #employees-list .main-list > li {
   padding: 20px;
   width: calc(100% / 4);
   min-height: 100px;
+}
+
+section #employee-show {
+  padding-top: 30px;
+}
+
+section #employee-show h2 {
+  padding-bottom: 20px;
+}
+
+section #employee-show .selected-employee,
+section #employee-show #tasks-carousel {
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 40px;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+section #employee-show .selected-employee ul,
+section #employee-show #tasks-carousel ul {
+  line-height: 2;
+}
+
+section #employee-show .selected-employee .tasks-container,
+section #employee-show #tasks-carousel .tasks-container {
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+}
+
+section #employee-show .selected-employee #prev,
+section #employee-show #tasks-carousel #prev {
+  position: absolute;
+  top: 50%;
+  left: -20px;
+}
+
+section #employee-show .selected-employee #next,
+section #employee-show #tasks-carousel #next {
+  position: absolute;
+  top: 50%;
+  right: -20px;
+}
+
+section #employee-show .selected-employee .buttons,
+section #employee-show #tasks-carousel .buttons {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 

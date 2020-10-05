@@ -17,8 +17,9 @@ class EmployeeController extends Controller
 
     public function show($id){
       $employee = Employee::findOrFail($id);
+      $count=1;
 
-      return view('employees.show', compact('employee'));
+      return view('employees.show', compact('employee','count'));
     }
 
     public function create(){
